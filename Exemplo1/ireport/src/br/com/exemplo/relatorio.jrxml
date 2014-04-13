@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="20dfeb4c-ada8-48e0-b4a3-6ab6b27bc4bb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Double"/>
+	<variable name="valor_1" class="java.lang.Double" resetType="Group" resetGroup="linha_id" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<variable name="valor_2" class="java.lang.Double" resetType="Group" resetGroup="linha_id" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<group name="linha_id" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupFooter>
+			<band height="16">
+				<textField pattern="###0.00;-###0.00">
+					<reportElement uuid="403030f2-7cee-45b4-bbd9-6bf6b96fa6cd" x="100" y="0" width="100" height="13"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{valor_2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="686739da-e8c3-41f7-bf4c-a4e8e29059f5" x="0" y="0" width="100" height="13"/>
+					<textElement/>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="325ed487-aeb0-41f4-9ee3-b60e0af87030" x="0" y="14" width="555" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="73c60520-16f8-4104-a264-90d293639006" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Id" + $F{id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6dfd3917-7e5f-4fe7-b82b-fffe46b93dd9" x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Nome: " + $F{nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="7e47cf75-1fb6-49f3-91bd-2bf98333f7d7" x="0" y="20" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="39593db9-52d0-47ee-be21-af112426d79e" x="435" y="0" width="80" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="a0b633ac-3d90-4564-b113-1157bb4d088a" x="515" y="0" width="40" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="eca53c07-be79-4d66-8fb9-af70660e14d3" x="251" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="16">
+			<staticText>
+				<reportElement uuid="090a3274-15f7-443d-8d7b-f017368f8112" x="0" y="0" width="100" height="13"/>
+				<textElement/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement uuid="f982d51e-ca31-4437-b785-5f73fb08fc9b" x="100" y="0" width="100" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="083315da-cf66-442b-8613-cbea0988abac" x="0" y="14" width="555" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
