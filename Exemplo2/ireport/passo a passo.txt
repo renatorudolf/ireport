@@ -1,0 +1,18 @@
+
+
+Gerar relatorio com dados de um para muitos
+
+Passos
+
+1 - Adicione um Field do tipo Collection
+
+2 - Crie um DataSet vazio, adicione um Field(com mesmo nome do passo 1) do tipo String e 
+em Description preencha como _THIS
+
+3 - Crie um List, edite o mesmo e em DatasetRun adicione:
+new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{NomeDoField})   
+
+4 - Adicione o Field dentro do List com Class String
+
+
+Feito
