@@ -1,0 +1,15 @@
+Bibliotecas necessarias para ireport
+
+1 - Va ao site http://www.jasperforge.org/ e faça o download jasperReports Library
+
+2 - Descompacte o zip 
+
+3 - Jars necessarios:
+dist/jasperreports-4.7.0.jar
+lib/iText.jar
+lib/JFreechart.jar
+lib/Jcommon.jar
+lib/commons-beanutils.jar
+lib/commons-collections.jar
+lib/commons-digester.jar
+lib/commons-logging.jar
